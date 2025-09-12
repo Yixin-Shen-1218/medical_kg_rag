@@ -6,8 +6,8 @@ from typing import List, Dict
 from config import TUPLE_DELIM, RECORD_DELIM, COMPLETION_DELIM, USE_OPENAI, OPENAI_API_KEY
 
 # === Load prompt file ===
-PROMPT_MODULE_PATH = os.path.join(os.path.dirname(__file__), "prompt_mmgraphrag.py")
-spec = importlib.util.spec_from_file_location("prompt_mmgraphrag", PROMPT_MODULE_PATH)
+PROMPT_MODULE_PATH = os.path.join(os.path.dirname(__file__), "prompt_iuxray.py")
+spec = importlib.util.spec_from_file_location("prompt_iuxray", PROMPT_MODULE_PATH)
 prompt_mm = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prompt_mm)
 PROMPTS = getattr(prompt_mm, "PROMPTS", {})
@@ -45,7 +45,7 @@ def call_llm_entity_extraction(text: str, entity_types: List[str]=None, model="g
     """Call LLM for entity extraction using the provided prompt"""
     template = PROMPTS.get("entity_extraction")
     if not template:
-        raise RuntimeError("entity_extraction prompt not found in prompt_mmgraphrag.py")
+        raise RuntimeError("entity_extraction prompt not found in prompt_iuxray.py")
 
     entity_types = entity_types or PROMPTS.get("DEFAULT_ENTITY_TYPES", [])
     prompt = template.format(
