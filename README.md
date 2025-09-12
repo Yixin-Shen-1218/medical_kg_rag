@@ -14,6 +14,7 @@ Each line/paragraph is parsed into entities & relationships, then stored in Neo4
    pip install -r requirements.txt
 
 2. Configure Neo4j and OpenAI (if used):
+   ```bash
    export NEO4J_URI="bolt://localhost:7687"
    export NEO4J_USER="neo4j"
    export NEO4J_PASSWORD="password"
