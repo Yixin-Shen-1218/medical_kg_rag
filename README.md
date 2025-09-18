@@ -92,7 +92,14 @@ python prepare_image_mapping.py
   Process medical reports and images to build the multimodal graph:
 
 ```bash
+# Use default setting（report_10.txt）
 python main.py
+
+# Use report_50.txt
+python main.py --text-file report_50.txt --image-dir ./images_50/
+
+# Use report_50.txt and clear the database
+python main.py --text-file report_50.txt --image-dir ./images_50/ --clear-db
 ```
 
 This will:
@@ -109,10 +116,11 @@ This will:
 
 ```bash
 python vqa_test.py --image path/to/xray.jpg --question "What abnormalities are visible?"
-Interactive mode:
+
+python vqa_test.py --image images_test/CXR95_IM-2445/0.png --question "What abnormalities are visible?"
 ```
 
-
+##### Interactive mode:
 
 ```bash
 python vqa_test.py --interactive

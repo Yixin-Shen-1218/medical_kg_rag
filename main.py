@@ -1,11 +1,15 @@
 import os
 import json
+import argparse
 from tqdm import tqdm
 from extractor import call_llm_entity_extraction, parse_entity_extraction_output, spacy_fallback_extract, USE_OPENAI
 from neo4j_client import Neo4jClient
 from image_processor import ImageProcessor
 
-TEXT_FILE = os.path.join(os.path.dirname(__file__), "report_10.txt")
+# 默认配置
+DEFAULT_TEXT_FILE = "report_10.txt"
+DEFAULT_ANNOTATION_FILE = "./iu_xray/annotation.json"
+DEFAULT_IMAGE_DIR = "./images_10/"
 
 def load_texts(path):
     """Load all reports from the input file"""
@@ -33,15 +37,37 @@ def create_image_mapping(annotation_file, target_image_dir):
     
     return mapping
 
+def parse_arguments():
+    """Parse command line arguments"""
+    parser = argparse.ArgumentParser(description="Process medical reports and images into a knowledge graph")
+    parser.add_argument("--text-file", type=str, default=DEFAULT_TEXT_FILE,
+                        help=f"Path to the text file containing reports (default: {DEFAULT_TEXT_FILE})")
+    parser.add_argument("--annotation-file", type=str, default=DEFAULT_ANNOTATION_FILE,
+                        help=f"Path to the annotation JSON file (default: {DEFAULT_ANNOTATION_FILE})")
+    parser.add_argument("--image-dir", type=str, default=DEFAULT_IMAGE_DIR,
+                        help=f"Directory containing images (default: {DEFAULT_IMAGE_DIR})")
+    parser.add_argument("--clear-db", action="store_true",
+                        help="Clear the database before processing")
+    return parser.parse_args()
+
 def main():
-    docs = load_texts(TEXT_FILE)
-    image_mapping = create_image_mapping("./iu_xray/annotation.json", "./images_10/")
+    # 解析命令行参数
+    args = parse_arguments()
+    
+    # 使用参数或默认值
+    text_file = args.text_file
+    annotation_file = args.annotation_file
+    image_dir = args.image_dir
+    
+    docs = load_texts(text_file)
+    image_mapping = create_image_mapping(annotation_file, image_dir)
     client = Neo4jClient()
     image_processor = ImageProcessor()
     
-    # Uncomment for testing to start from an empty database
-    client.clear_all()
-    print("The database is cleaned.")
+    # 根据参数决定是否清空数据库
+    if args.clear_db:
+        client.clear_all()
+        print("The database is cleaned.")
     
     for idx, doc in enumerate(tqdm(docs, desc="Processing documents")):
         doc_id = f"doc_{idx+1}"
