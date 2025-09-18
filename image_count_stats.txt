@@ -1,6 +1,6 @@
 IU_XRay Dataset Image Count Statistics
 ==================================================
-Statistics Time: 1758194753.0782185
+Statistics Time: 1758207233.623053
 Base Directory: /home/eason/Multimodel_RAG_Indexing_demo/images
 Total Subdirectories: 2069
 Subdirectories Containing Images: 2069
