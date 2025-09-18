@@ -1,0 +1,42 @@
+{
+  "doc_1": [
+    "./images_10/CXR2384_IM-0942/0.png",
+    "./images_10/CXR2384_IM-0942/1.png"
+  ],
+  "doc_2": [
+    "./images_10/CXR2926_IM-1328/0.png",
+    "./images_10/CXR2926_IM-1328/1.png"
+  ],
+  "doc_3": [
+    "./images_10/CXR1451_IM-0291/0.png",
+    "./images_10/CXR1451_IM-0291/1.png"
+  ],
+  "doc_4": [
+    "./images_10/CXR2887_IM-1289/0.png",
+    "./images_10/CXR2887_IM-1289/1.png"
+  ],
+  "doc_5": [
+    "./images_10/CXR1647_IM-0424/0.png",
+    "./images_10/CXR1647_IM-0424/1.png"
+  ],
+  "doc_6": [
+    "./images_10/CXR2434_IM-0976/0.png",
+    "./images_10/CXR2434_IM-0976/1.png"
+  ],
+  "doc_7": [
+    "./images_10/CXR3655_IM-1817/0.png",
+    "./images_10/CXR3655_IM-1817/1.png"
+  ],
+  "doc_8": [
+    "./images_10/CXR3299_IM-1575/0.png",
+    "./images_10/CXR3299_IM-1575/1.png"
+  ],
+  "doc_9": [
+    "./images_10/CXR1419_IM-0267/0.png",
+    "./images_10/CXR1419_IM-0267/1.png"
+  ],
+  "doc_10": [
+    "./images_10/CXR2867_IM-1274/0.png",
+    "./images_10/CXR2867_IM-1274/1.png"
+  ]
+}

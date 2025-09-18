@@ -1,6 +1,10 @@
-neo4j>=5.0.0
-openai>=0.27.0
-spacy<3.7
-pydantic<2
-tqdm
-python-dotenv
+neo4j==5.28.2
+numpy==2.3.3
+openai==0.28.0
+Pillow==11.3.0
+scikit_learn==1.7.2
+spacy==3.4.4
+torch==2.8.0
+torchvision==0.23.0
+tqdm==4.67.1
+transformers==4.56.1

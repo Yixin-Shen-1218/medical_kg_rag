@@ -1,4 +1,3 @@
-# config.py
 import os
 
 # === Neo4j connection settings ===
@@ -9,6 +8,11 @@ NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "password")
 # === LLM / OpenAI settings ===
 USE_OPENAI = os.getenv("USE_OPENAI", "true").lower() in ("1","true","yes")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+# === Image processing settings ===
+IMAGE_DIR = os.getenv("IMAGE_DIR", "./images")
+FEATURE_DIM = 512  # CLIP feature dimension
+SIMILARITY_THRESHOLD = 0.3  # Entity-image association similarity threshold
 
 # === Prompt delimiters ===
 TUPLE_DELIM = "<|>"

@@ -11,3 +11,5 @@ __pycache__
 iu_xray/
 medical_kg_rag_1/
 medical_kg_rag_2/
+images/
+prompt_templates/
