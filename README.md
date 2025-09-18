@@ -64,7 +64,7 @@ python -m spacy download en_core_web_sm
 ### Data Preparation
 
 1. Download the IU X-Ray dataset
-   1. Request access from https://openi.nlm.nih.gov/
+   1. Request access from https://drive.google.com/file/d/1c0BXEuDy8Cmm2jfN0YYGkQxFZd2ZIoLg/view
    2. Place the data in an iu_xray/ directory with structure:
 
 ```text
